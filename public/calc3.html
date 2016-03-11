@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>MyCalc</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+            body {
+                width: 80%;
+                margin: 0 auto;
+            }
+            .row {
+                display: inline-block;
+            }        
+            
+            .button {
+                height: 20px;
+                width: 20px;
+                margin: 10px;
+            }
+    </style>
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="row">
+                <div class="button"><button>7</button></div>
+                <div class="button"><button>8</button></div>
+                <div class="button"><button>8</button></div>
+                <div class="button"><button>+</button></div>
+            </div>
+            <div class="row">
+                <div class="button"><button>4</button></div>
+                <div class="button"><button>5</button></div>
+                <div class="button"><button>6</button></div>
+                <div class="button"><button>-</button></div>
+            </div>
+            <div class="row">
+                <div class="button"><button>3</button></div>
+                <div class="button"><button>2</button></div>
+                <div class="button"><button>1</button></div>
+                <div class="button"><button>*</button></div>
+            </div>
+            <div class="row">
+                <div class="button"><button>0</button></div>
+                <div class="button"><button>C</button></div>
+                <div class="button"><button>=</button></div>
+                <div class="button"><button>/</button></div>
+            </div>
+        </div>
+
+
+        <script>
+
+            function clear(){
+                displayBar.value = "";
+            }
+            function mPlus(){
+                displayBar.value = "+" + displayBar.value;
+            }
+            function mMinus(){
+                displayBar.value = "-" + displayBar.value;
+            }
+            var displayBar = document.getElementById("total");
+            var buttons = document.getElementsByClassName("button");
+            Array.prototype.forEach.call(buttons, function(button){
+                button.addEventListener("click", function() {
+                    if(button.textContent !== "=" && button.textContent !== "C" && button.textContent !== "m+" && button.textContent !== "m-") {
+                        console.log(button.textContent);
+                        displayBar.value += button.textContent;
+                    } else if(button.textContent === "C"){
+                        clear();
+                    } else if(button.textContent === "m+"){
+                        mPlus();
+                    } else if(button.textContent === "m-"){
+                        mMinus();
+                    }
+                    else {
+                      displayBar.value = eval(displayBar.value);    
+                      console.log("pressed =");  
+                    }
+                    });
+                });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>MyCalc</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+            body {
+                width: 80%;
+                margin: 0 auto;
+            }
+            /*.button {*/
+
+            /*}*/
+            .operator {
+                background-color: #0066ff;
+                color: white;
+                font-weight: bold;
+            }
+            #total {
+               height: 50px;
+               background-color: rgba(0,0,0,0.3);
+               text-align: right;
+               font-size: 24px;
+               font-weight: bold;
+           }
+            .grid, .grid_item {
+                border: 1px solid #e7e7e7;
+                text-align: center;
+            }
+            
+            .grid_row {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .grid_item {
+                flex: 1;
+                padding: 12px;
+                cursor: pointer;
+            }
+            
+            @media all and (min-width: 480px) {
+                .grid_row--sm {
+                    flex-direction: row;
+                }
+            }
+            
+            @media all and (min-width: 720px) {
+                .grid_row--md {
+                    flex-direction: row;
+                }
+            }
+            
+            @media all and (min-width: 960px) {
+                .grid_row--lg {
+                    flex-direction: row;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1>My Simple calculator</h1>
+            </header>
+            <div class="grid">
+                <div class="grid_row"><input type="text" id="total" name="" disabled/></div>
+                <div class="grid_row grid_row--sm">
+                    <div class="grid_item button">mrc</div>
+                    <div class="grid_item button">m-</div>
+                    <div class="grid_item button">m+</div>
+                    <div class="grid_item button" id="operators">/</div>
+                </div>
+                <div class="grid_row grid_row--sm">
+                    <div class="grid_item button" id="numbers">7</div>
+                    <div class="grid_item button" id="numbers">8</div>
+                    <div class="grid_item button" id="numbers">9</div>
+                    <div class="grid_item button" id="operators">*</div>
+                </div>
+                <div class="grid_row grid_row--sm">
+                    <div class="grid_item button" id="numbers">4</div>
+                    <div class="grid_item button" id="numbers">5</div>
+                    <div class="grid_item button" id="numbers">6</div>
+                    <div class="grid_item button" id="operators">-</div>
+                </div>
+                <div class="grid_row grid_row--sm">
+                    <div class="grid_item button" id="numbers">1</div>
+                    <div class="grid_item button" id="numbers">2</div>
+                    <div class="grid_item button" id="numbers">3</div>
+                    <div class="grid_item button" id="operators">+</div>
+                </div>
+                <div class="grid_row grid_row--sm">
+                    <div class="grid_item button" id="numbers">0</div>
+                    <div class="grid_item button">.</div>
+                    <div class="grid_item button clear">C</div>
+                    <div class="grid_item button" id="equals">=</div>
+                </div>
+            </div>
+        </div>
+
+        
+        <script>
+            // var num1 = "";
+            // var operator = "";
+            // var num2 = "";
+            // var total = "";
+            // var operation = function(num1, operator, num2) {
+            //     total = Number(num1) + operator + Number(num2);
+            // }
+
+            // var display = function(total) {
+                            
+            // }
+            function clear(){
+                displayBar.value = "";
+            }
+            function mPlus(){
+                displayBar.value = "+" + displayBar.value;
+            }
+            function mMinus(){
+                displayBar.value = "-" + displayBar.value;
+            }
+            var displayBar = document.getElementById("total");
+            var buttons = document.getElementsByClassName("button");
+            Array.prototype.forEach.call(buttons, function(button){
+                button.addEventListener("click", function() {
+                    if(button.textContent !== "=" && button.textContent !== "C" && button.textContent !== "m+" && button.textContent !== "m-") {
+                        console.log(button.textContent);
+                        displayBar.value += button.textContent;
+                    } else if(button.textContent === "C"){
+                        clear();
+                    } else if(button.textContent === "m+"){
+                        mPlus();
+                    } else if(button.textContent === "m-"){
+                        mMinus();
+                    }
+                    else {
+                      displayBar.value = eval(displayBar.value);    
+                      console.log("pressed =");  
+                    }
+                    });
+                });
+        </script>
+    </body>
+</html>

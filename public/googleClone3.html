@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Google</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            
+            /** {border: 1px solid red;} */
+            body {
+                margin-left: 0px; 
+                margin-right: 0px;
+                
+            }
+
+        
+                /*------------------------------*\
+                Grid System
+                \*------------------------------*/
+            
+            .row, 
+            .column {
+                box-sizing: border-box;
+            }
+            
+            .row:before,
+            .row:after {
+                content: " ";
+                display: table;
+            }
+            
+            .row:after {
+                clear: both;
+            }
+            
+            .column {
+                position: relative;
+                float: left;
+                display: block;
+            }
+            
+            .column + .column {
+                margin-left: 1.6%;
+            }
+            
+            .column-1 {width: 6.86666666667%;}
+            .column-2 {width: 15.3333333333%;}
+            .column-3 {width: 23.8%;}
+            .column-4 {width: 32.2666666667%;}
+            .column-5 {width: 40.7333333333%;}
+            .column-6 {width: 49.2%;}
+            .column-7 {width: 57.6666666667%;}
+            .column-8 {width: 66.1333333333%;}
+            .column-9 {width: 74.6%;}
+            .column-10 {width: 83.0666666667%;}
+            .column-11 {width: 91.5333333333%;}
+            .column-12 {
+                width: 100%;
+                margin-left: 0;
+            }
+            
+            @media only screen and (max-width: 550px) {
+                .column-1, 
+                .column-2, 
+                .column-3, 
+                .column-4, 
+                .column-5, 
+                .column-6, 
+                .column-7, 
+                .column-8, 
+                .column-9, 
+                .column-10, 
+                .column-11, 
+                .column-12 {
+                    float: none;
+                    width: auto;
+                }
+              
+                .column + .column {
+                    margin-left: 0;
+                }
+            }
+            
+            /*------------------------------*\
+                Styling
+            \*------------------------------*/
+            
+            body {
+                padding: 0 0px;
+            }
+            
+            .column {
+            /*     background: #eee; */
+            /*     border: 1px solid #ccc; */
+                border-radius: 4px;
+                color: #777;
+                padding: 5px;
+                min-height: 30px;
+                text-align: center;
+            }
+            
+            .row {
+                margin-bottom: 10px;
+            }
+            
+            .row:last-child {
+                margin-bottom: 0;
+            }
+            
+            .column .column {
+                color: #eee;
+                background: #333;
+                border-color: #000;
+            }
+            
+            .p {
+              font-size: 14px;
+              text-align: center;
+              padding-top: 100px;
+            }
+            
+            @media only screen and (max-width: 550px) {
+                .row {
+                    margin-bottom: 0;
+                }
+                .column {
+                    margin-bottom: 10px;
+                }
+                .row:last-child .column:last-child {
+                    margin-bottom: 0;
+                }
+                
+            }
+            
+            /*------------------------------*\
+                Styling2
+            \*------------------------------*/
+            /** {border: 1px solid red;}*/
+            
+            html {
+                position: relative;
+                min-height: 100%;
+            }
+            body {
+                margin: 0 0 100px; /* bottom = footer height */
+                font-family: Arial, sans-serif;
+                font-size: 13px;
+            }
+            .footer {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 45px;
+                width: 100%;
+                background-color: #e6e6e6;
+                border-top: 1px solid #d9d9d9;
+                margin-bottom: 0;
+                padding: 0;
+
+            }
+            
+            /*.footer .row div {*/
+            /*    padding-bottom: 0px;*/
+            /*    margin-bottom: 0px;*/
+            /*}*/
+            
+            .footer ul {
+                margin-top: 0px;
+                margin-bottom: 0px;
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .footer .left {
+                text-align: left;
+                margin-left: -15px;
+            }
+            .footer .right {
+                text-align: right;
+                margin-right: 15px;
+            }
+            .footer ul li {
+                margin-top: 10px;
+                
+            }
+            a {
+                text-decoration: none;
+                color: #808080;
+            }
+            
+            a:hover {
+                text-decoration: underline;
+            }
+            ul li { 
+                display: inline-block; 
+                margin: 0 10px; 
+                
+            }
+            .jumbotron {
+                margin-top: 15vh;
+            }
+            .logo {
+                height: 92px;
+                width: 272px;
+            }
+            
+            .searchbar input{
+                margin-top: 20px;
+                height: 40px;
+                width: 550px;
+                font-size: 20px;
+            }
+            
+            .searchbutton {
+                color: #666666;
+                background-color: #f2f2f2;
+                padding: 10px 16px 10px 16px;   
+                text-align: center;
+                font-weight: bold;
+                margin: 5px;
+                border: 1px solid #f2f2f2;
+                border-radius: 2px;
+                /*width: 127px;*/
+                /*height: 36px;*/
+            }
+            .searchbutton:hover {
+                color: #000;
+                font-weight: bold;
+                border: 1px solid #999999;
+                cursor: pointer;
+            }            
+
+        </style>
+        
+    </head>    
+<body>
+    <div class="row navbar">
+      <div class="column column-9"></div>
+      <div class="column column-3">
+          <ul>
+              <li><a href="#">Aiumi</a></li>
+              <li><a href="#">Gmail</a></li>
+              <li><a href="#">Images</a></li>
+          </ul>
+      </div>
+
+    </div>
+    
+    <div class="row jumbotron">
+      <div class="column column-12">
+        <img class="logo" src="https://goo.gl/kDLMOX" alt="logo" />
+      </div>
+      <div class="row">
+        <div class="column column-12 searchbar">
+          <input type="search"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column column-4"></div>
+      <div class="column column-4">
+          <ul>
+              <li class="searchbutton">Google Search</li>
+              <li class="searchbutton">I'm Feeling Lucky</li>
+          </ul>
+      </div>
+        <div class="column column-4"></div>
+      </div>
+    </div>
+    
+    <div class="footer row">
+      <div class="column column-3">
+          <ul class="left">
+              <li><a href="#">Advertising</a></li>
+              <li><a href="#">Business</a></li>
+              <li><a href="#">About</a></li>
+          </ul>
+      </div>
+      <div class="column column-6"></div>
+      <div class="column column-3">
+          <ul class="right">
+              <li><a href="#">Privacy</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Settings</a></li>
+          </ul>
+      </div>
+    </div>
+    
+    </div>    
+</body>
+</html>
+
+
+
+

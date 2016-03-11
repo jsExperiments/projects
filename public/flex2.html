@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Flex2</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+            .grid .grid_item {
+                border: 1px solid #e7e7e7;
+            }
+            
+            .grid_row {
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .grid_item {
+                flex: 1;
+                padding: 12px;
+            }
+            
+            @media all and (min-width: 480px) {
+                .grid_row--sm {
+                    flex-direction: row;
+                }
+            }
+            
+            @media all and (min-width: 720px) {
+                .grid_row--md {
+                    flex-direction: row;
+                }
+            }
+            
+            @media all and (min-width: 960px) {
+                .grid_row--lg {
+                    flex-direction: row;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="grid">
+            <div class="grid_row grid_row--sm">
+                <div class="grid_item">
+                    <div class="grid">
+                        <div class="grid_row grid_row--lg">
+                            <div class="grid_item">Nested 1</div>
+                            <div class="grid_item">Nested 2</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_item">2</div>
+            </div>
+            <div class="grid_row grid_row--md">
+                <div class="grid_item">1</div>
+                <div class="grid_item">2</div>
+                <div class="grid_item">3</div>
+            </div>
+            <div class="grid_row grid_row--lg">
+                <div class="grid_item">1</div>
+                <div class="grid_item">2</div>
+                <div class="grid_item">3</div>
+                <div class="grid_item">4</div>
+            </div>
+        </div>
+    </body>
+</html>

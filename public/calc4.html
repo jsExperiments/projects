@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Our Calculator</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style type="text/css">
+    * {
+      box-sizing: border-box;
+      /*border: 1px solid red;*/
+    }
+
+    body {
+      width: 80%;
+      margin: 0 auto;
+      font-family: monospace;
+      font-weight: bold;
+    }
+
+    #container {
+      width: 800px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    /*.calculator {*/
+    /*  width: 600px;*/
+    /*  border: 1px solid black;*/
+    /*}*/
+    #total {
+      width: 500px;
+      height: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      border-radius: 10px;
+      text-align: right;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+    }
+
+    .button {
+      /*border: 1px solid black;*/
+
+      width: 100px;
+      padding: 20px;
+      margin: 15px;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+      background-color: #999999;
+      -webkit-box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.75);
+      -moz-box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.75);
+      box-shadow: 5px 5px 5px 1px rgba(0,0,0,0.75);
+    }
+
+    .operator,
+    #clear {
+      background-color: lightblue;
+      color: black;
+      font-size: 30px;
+    }
+
+    #equal {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="container">
+    <h1>My Simple Calculator</h1>
+    <hr>
+    <div class="calculator">
+
+      <div class="display row">
+        <input id="total" type="text" name="" disabled/>
+      </div>
+
+      <div class="row">
+        <div class="button">7</div>
+        <div class="button">8</div>
+        <div class="button">9</div>
+        <div class="button operator">+</div>
+      </div>
+
+      <div class="row">
+        <div class="button">4</div>
+        <div class="button">5</div>
+        <div class="button">6</div>
+        <div class="button operator">-</div>
+      </div>
+
+      <div class="row">
+        <div class="button">1</div>
+        <div class="button">2</div>
+        <div class="button">3</div>
+        <div class="button operator">*</div>
+      </div>
+
+      <div class="row">
+        <div class="button">0</div>
+        <div class="button" id="clear">C</div>
+        <div class="button" id="equal">=</div>
+        <div class="button operator">/</div>
+      </div>
+
+      <div class="row">
+        <div class="button">m+</div>
+        <div class="button">m-</div>
+        <div class="button">.</div>
+        <div class="button">%</div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    //storing variables
+    var displayBar = document.getElementById("total");
+    var buttons = document.getElementsByClassName("button"); //array
+    //looping over each button and adding an event listener
+    Array.prototype.forEach.call(buttons, function(button) {
+      button.addEventListener("click", function() {
+        if (button.textContent != "=" && button.textContent != "C" && button.textContent != "m+" && button.textContent != "m-" && button.textContent != "%") {
+          displayBar.value += button.textContent;
+          console.log(button.textContent);
+        } else if (button.textContent == "C") {
+          clear();
+        } else if (button.textContent == "m+") {
+          mPlus();
+        } else if (button.textContent == "m-") {
+          mMinus();
+        } else if (button.textContent == "%") {
+          percent();
+        } else if (button.textContent == "=") {
+          result();
+        }
+        // displayBar.value += button.textContent;
+      });
+    });
+    //functions required
+    //display
+
+    //clear
+    function clear() {
+      displayBar.value = "";
+    }
+    //equals
+    function result() {
+      return displayBar.value = eval(displayBar.value);
+    }
+    //m+
+    function mPlus() {
+      displayBar.value = "+" + displayBar.value;
+    }
+    //m-
+    function mMinus() {
+      displayBar.value = "-" + displayBar.value;
+    }
+
+    function percent() {
+      displayBar.value = displayBar.value / 100;
+    }
+  </script>
+
+</body>
+
+</html>

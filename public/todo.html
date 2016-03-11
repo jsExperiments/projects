@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ToDo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            h4 {
+                margin-left: 2vw;
+            }
+            
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="todo">
+                <div id="title"><h1>Daily To-Do List</h1><hr></div>
+                <div>
+                        <input id="input-bar" type="text" name="" placeholder="Enter task"/>
+                        <input id="submit-btn" type="submit" value="Submit"/>
+                </div>
+                <div>
+                    <h4>Your Tasks:</h4>
+                    <div id="tasks">
+                        <!--<input type="checkbox" class="chkbox"><li class="task">This is where your tasks go!</li>-->
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    <script type="text/javascript">
+            var submitButton = document.getElementById("submit-btn");
+            
+            var taskList = document.getElementById("tasks");
+            submitButton.addEventListener("click", function(){
+                var inputVal = document.getElementById("input-bar");
+                console.log("I was clicked");
+                var label = document.createElement("label");
+                // label.setAttribute("class", "listItem");
+                
+                
+                var div = document.createElement("div");
+                div.setAttribute("class", "task");
+                
+                console.log(inputVal);
+                var checkBox = document.createElement("input");
+                checkBox.setAttribute("type", "checkbox");
+                label.appendChild(checkBox);
+                label.innerHTML = "<input type='checkbox' class='chkbox'/><span>" + inputVal.value +"</span>";
+                div.appendChild(label);
+                taskList.appendChild(div);
+                
+                inputVal.value = ""; //clear inputVal (can also use null here instead of empty string);
+            });
+            
+            // window.onload = function() {
+            //     var checkBoxes = document.getElementsByClassName("chkbox");
+            //     Array.prototype.forEach.call(checkBoxes, function(checkBox) {
+            //         checkBox.addEventListener("change", function() {
+            //             if(checkBox.checked) {console.log("hello");}                    
+            //         });
+            //     });
+            // };    
+    </script>
+    </body>
+</html>

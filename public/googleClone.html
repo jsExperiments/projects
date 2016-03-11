@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Google</title>
+        <style type="text/css">
+             /** {border: 1px solid red;} */
+             
+            * {
+                -moz-box-sizing: border-box;
+                 box-sizing: border-box;
+            }
+            .jumbotron, .search{
+                text-align: center;
+            }
+            ul li{
+                display: inline-block;
+                border: none;
+                margin: 0 10px;
+                list-style-type: none;
+            }
+            .navbar {
+                display: flex;
+                justify-content: flex-end;
+            }
+            .searchButtons ul {
+                height: z20px;*
+            }
+            .searchButtons ul li{
+                color: #666666;
+                background-color: #f2f2f2;
+                padding: 10px;   
+                text-align: center;
+                margin: 10px 10px;
+                /*width: 127px;*/
+                /*height: 36px;*/
+            }
+
+            .searchButtons ul li:hover {
+                color: #000;
+                border: 1px solid #000;
+                cursor: pointer;
+            }
+            #logo img {
+                height: 92px;
+                width: 272px;
+            }
+            
+            #searchBar {
+                height: 40px;
+                width: 600px;
+                margin: 30px 0;
+                font-size: 25px;
+            }
+            .footer div{
+                display: inline-block;
+            }
+            .right_footer {
+                
+                float: right;
+            }
+
+
+            .footer {
+                background-color: #cccccc;
+                margin: 10px 0;
+                /*position: absolute;*/
+                bottom: 0;
+            }
+            
+
+
+        </style>
+    </head>
+    <body>
+        <div class="container">
+ 
+            <div class="navbar">
+                    <ul>
+                        <li>Aiumi</li>
+                        <li>Gmail</li>
+                        <li>Images</li>
+                    </ul>
+            </div>
+
+            <div class="main_content">
+                <div class="jumbotron">
+                    <div id="logo"><img src="https://goo.gl/kDLMOX"/></div>
+                </div>
+                <div class="search">
+                    <div><input type="text" name="" id="searchBar"/></div>
+                    <div class="searchButtons">
+                        <ul>
+                            <li>Google Search</li>
+                            <li>I'm Feeling Lucky</li>
+                        </ul>                
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+
+                <div class="left_footer">
+                    <ul class>
+                        <li>Advertising</li>
+                        <li>Business</li>
+                        <li>About</li>
+                    </ul>
+                        
+                </div>
+                <div class="right_footer">
+                    <ul>
+                        <li>Privacy</li>
+                        <li>Terms</li>
+                        <li>Settings</li>
+                    </ul>
+                </div>
+                
+            </div>
+            
+        </div>
+    </body>
+</html>

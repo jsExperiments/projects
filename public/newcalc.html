@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator</title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+
+		<style>
+		    body, div, a {
+            padding:0;
+            margin:0;
+            font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+        }
+        
+        #calculator {
+        	background-color: #999;
+        	width: 310px;
+        	height: 460px;
+        	border: 3px black solid;
+        	margin: 10px auto;
+        	padding: 5px;
+        	border-radius: 10px;
+        }
+        
+        #total {
+            height: 70px;
+            width: 300px;
+            margin:auto;
+            background-color:white;
+            margin-bottom: 5px;
+            text-align: right;
+            font-size: 60px;
+            padding: 0 5px;
+        }
+        
+        #numbers, #operators {
+        	margin: auto;	
+        }
+        
+        #operators a {
+        	display: block;
+        	width: 45px;
+        	height: 45px;
+        	float: left;
+        	text-decoration: none;
+        	color: black;
+        	text-align: center;
+        	font-size: 39px;
+        	padding: 2px;
+        	margin: 5px 6px;
+        	background: -webkit-gradient(linear, left top, left bottom, from(#EDEDED), to(#DCDCDC));
+        	background: -moz-linear-gradient(top, #EDEDED, #DCDCDC);
+        	border-radius: 10px;
+        	cursor: pointer;
+        }
+        
+        #numbers a {
+        	display: block;
+        	width: 50px;
+        	height: 50px;
+        	float: left;
+        	text-decoration: none;
+        	color: black;
+        	text-align: center;
+        	font-size: 32pt;
+        	padding: 10px;
+        	margin: 5px 15px;
+        	background: -webkit-gradient(linear, left top, left bottom, from(#EDEDED), to(#DCDCDC));
+        	background: -moz-linear-gradient(top, #EDEDED, #DCDCDC);
+        	border-radius: 10px;
+        	cursor: pointer;
+        }
+		</style>
+	</head>
+	<body>
+		<div id="calculator">
+			<div id="total">
+			</div>
+			<div id="operators">
+				<a>+</a>
+				<a>-</a>
+				<a>/</a>
+				<a>*</a>
+				<a id="equals">=</a>
+			</div>
+			<div id="numbers">
+				<a>1</a>
+				<a>2</a>
+				<a>3</a>
+				<a>4</a>
+				<a>5</a>
+				<a>6</a>
+				<a>7</a>
+				<a>8</a>
+				<a>9</a>
+				<a id="clear">C</a>
+				<a>0</a>
+				<a id="clearall">AC</a>
+			</div>
+		</div>
+		<script>
+		    $(document).ready(function(){
+        	var testNumLength = function(number) {
+                if (number.length > 9) {
+                    totaldiv.text(number.substr(number.length-9,9));
+                    if (number.length > 15) {
+                        number = "";
+                        totaldiv.text("Err");
+                    }
+                } 
+            };
+        	var number = "";
+            var newnumber = "";
+            var operator = "";
+            var totaldiv = $("#total");
+            totaldiv.text("0");
+            $("#numbers > a").not("#clear,#clearall").click(function(){
+        		number += $(this).text();
+        		totaldiv.text(number);
+        		testNumLength(number);
+            });
+            $("#operators > a").not("#equals").click(function(){
+        		operator = $(this).text();
+        		newnumber = number;
+        		number = "";
+        		totaldiv.text("0");
+            });
+            $("#clear,#clearall").click(function(){
+        		number = "";
+        		totaldiv.text("0");
+        		if ($(this).attr("id") === "clearall") {
+        			newnumber = "";
+        		}
+            });
+            //Add your last .click() here!
+            // $("#equals > a").click(function(){
+            //     totaldiv.text("equal clicked");
+            //     var result = 0;
+            //     if (operator === "+"){
+            //         result = parseInt(number, 10) + parseInt(newnumber, 10);
+            //     } 
+            //     else if (operator === "-"){
+            //         result = parseInt(number, 10) - parseInt(newnumber, 10);
+            //     }
+            //     else if (operator === "/"){
+            //         result = parseInt(number, 10) / parseInt(newnumber, 10);
+            //     }
+            //     else if (operator === "*") {
+            //         result = parseInt(number, 10) * parseInt(newnumber, 10);
+            //     }
+            //     result.toString(10);
+            //     totaldiv.text(result);
+            //     testNumLength(result);
+            //     number = "";
+            //     newnumber = "";
+            // });
+            var equalButton = document.getElementById("equals");
+            equalButton.addEventListener("click", function() {
+                console.log("Equal Clicked");
+                    //  totaldiv.text("equal clicked");
+                var result = 0;
+                if (operator === "+"){
+                    result = parseInt(number, 10) + parseInt(newnumber, 10);
+                } 
+                else if (operator === "-"){
+                    result = parseInt(number, 10) - parseInt(newnumber, 10);
+                }
+                else if (operator === "/"){
+                    result = parseInt(number, 10) / parseInt(newnumber, 10);
+                }
+                else if (operator === "*") {
+                    result = parseInt(number, 10) * parseInt(newnumber, 10);
+                }
+                result.toString(10);
+                totaldiv.text(result);
+                testNumLength(result);
+                number = "";
+                newnumber = "";
+                
+            });
+            
+        });
+		</script>
+	</body>
+</html>

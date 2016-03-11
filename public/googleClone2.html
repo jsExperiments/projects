@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Google</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            /** {border: 1px solid red;}*/
+            
+            * {
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                 box-sizing: border-box;
+            }
+            .grid, grid_item {
+                /*border: 1px solid #e7e7e7;*/
+                text-align: center;
+            }
+            .grid_row {
+                display: flex;
+                flex-direction: row;
+            }
+            .grid_item {
+                /*flex: 1;*/
+                padding: 10px;
+            }
+            /*body {*/
+                /*display: flex;*/
+                /*height: 100vh;*/
+                /*flex-direction: column;*/
+            /*}*/
+            .main {
+                flex: 1;
+               
+            }
+            .navbar {
+                /*flex: 0 0 100%;*/
+                justify-content: flex-end;
+                padding-right: 2vw;
+            }
+            .jumbotron {
+                flex-direction: column;
+                margin-top: 15vh;
+                margin-bottom: 46vh;
+            }
+            .search, .button, .logomain {
+                justify-content: center;
+                
+            }
+            .logo img {
+                height: 92px;
+                width: 272px;
+            }
+            #searchbar {
+                justify-content: flex-end;
+                height: 40px;
+                width: 550px;
+                font-size: 20px;
+            }
+            
+            .searchbutton {
+                color: #666666;
+                background-color: #f2f2f2;
+                padding: 8px 16px 8px 16px;   
+                text-align: center;
+                margin: 15px 5px;
+                border: 1px solid #f2f2f2;
+                border-radius: 2px;
+                /*width: 127px;*/
+                /*height: 36px;*/
+            }
+            .searchbutton:hover {
+                color: #000;
+                border: 1px solid #000;
+                cursor: pointer;
+            }
+            .footer {
+                /*position: absolute;*/
+                /*bottom: 0;*/
+                justify-content: flex-end;
+                background-color: #e6e6e6;
+                border-top: 1px solid #d9d9d9;
+                height: 45px;
+                padding: 8px 2vw;
+                
+            }
+            
+  
+        </style>
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="grid">
+                <div class="main">
+                    <div class="grid_row grid_row--md navbar">
+                        
+                        <div class="grid_item navbutton">Aiumi</div>
+                        <div class="grid_item navbutton">Gmail</div>
+                        <div class="grid_item navbutton">Images</div>
+                        
+                    </div>
+                    <div class="jumbotron">
+                        <div class="grid_row grid_row--md logomain">
+                            <div class="grid_item logo"><img src="https://goo.gl/kDLMOX"/></div>
+                        </div>
+                        <div class="grid_row grid_row--md search">
+                            <div class="grid_item searchbar"><input type="text" name="" id="searchbar"/></div>
+                        </div>
+                        <div class="grid_row grid_row--md button">
+                            <div class="grid_item searchbutton">Google Search</div>
+                            <div class="grid_item searchbutton">I'm Feeling Lucky</div>
+                        </div>
+                    </div>
+                    <div class="grid_row grid_row--md footer">
+                        <div class="grid_row grid_row--md left_footer">
+                            <div class="grid_item footerbutton">Advertising</div>
+                            <div class="grid_item footerbutton">Business</div>
+                            <div class="grid_item footerbutton">About</div>
+                        </div>
+                        <div class="grid_row grid_row--md right_footer">
+                            <div class="grid_item footerbutton">Privacy</div>
+                            <div class="grid_item footerbutton">Terms</div>
+                            <div class="grid_item footerbutton">Settings</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
